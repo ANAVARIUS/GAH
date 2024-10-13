@@ -1,4 +1,5 @@
 module mx.iteso.gah {
+    requires java.sql;
     requires javafx.controls;
     requires javafx.fxml;
 
