@@ -6,7 +6,7 @@ import java.util.Objects;
 public class Materia {
     private String nombreMateria;
     private int noCreditos;
-    private List<Materia> requisitos = new ArrayList<Materia>();
+    private List<Materia> requisitos = new ArrayList<>();
 
     public Materia(String nombreMateria, int noCreditos) {
         this.nombreMateria = nombreMateria;
@@ -40,7 +40,7 @@ public class Materia {
         if(!requisitos.remove(materia)){
             System.out.println("Error, la materia se encuentra en los requisitos.");
         }
-    };
+    }
 
     @Override
     public boolean equals(Object obj) {
