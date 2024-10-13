@@ -1,4 +1,4 @@
-package mx.iteso.gah;
+package controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

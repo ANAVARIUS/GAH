@@ -6,4 +6,6 @@ module mx.iteso.gah {
 
     opens mx.iteso.gah to javafx.fxml;
     exports mx.iteso.gah;
+    exports controllers;
+    opens controllers to javafx.fxml;
 }
