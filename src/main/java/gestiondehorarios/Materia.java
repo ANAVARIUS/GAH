@@ -47,7 +47,7 @@ public class Materia {
         if (this == obj) return true; // Mismo objeto
         if (obj == null || getClass() != obj.getClass()) return false; // Diferente clase
         Materia materia = (Materia) obj; // Convertir a Materia
-        return noCreditos == materia.noCreditos && nombreMateria.equals(materia.nombreMateria); // Comparar atributos
+        return noCreditos == materia.getNoCreditos() && nombreMateria.equals(materia.getNombreMateria()); // Comparar atributos
     }
 
     @Override
