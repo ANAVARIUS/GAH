@@ -6,7 +6,6 @@ import java.util.Objects;
 public class Materia {
     private String nombreMateria;
     private int noCreditos;
-    private List<Materia> requisitos = new ArrayList<>();
 
     public Materia(String nombreMateria, int noCreditos) {
         this.nombreMateria = nombreMateria;
@@ -27,19 +26,6 @@ public class Materia {
 
     public void setNoCreditos(int noCreditos) {
         this.noCreditos = noCreditos;
-    }
-    public void addRequisitos(Materia materia){
-        if (!requisitos.contains(materia)) {
-            requisitos.add(materia);
-        }
-        else {
-            System.out.println("La materia ya está en la lista de requisitos");
-        }
-    }
-    public void removeRequisitos(Materia materia){
-        if(!requisitos.remove(materia)){
-            System.out.println("Error, la materia se encuentra en los requisitos.");
-        }
     }
 
     @Override
