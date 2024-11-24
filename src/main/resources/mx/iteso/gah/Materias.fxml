@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2c2c2c;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MateriasController">
+   <children>
+      <Text fill="WHITE" layoutX="61.0" layoutY="115.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="MATERIAS" textAlignment="CENTER" wrappingWidth="485.13671875">
+         <font>
+            <Font name="Microsoft New Tai Lue Bold" size="37.0" />
+         </font>
+      </Text>
+      <Button fx:id="Materias" disable="true" layoutX="53.0" layoutY="31.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="113.0" style="-fx-background-color: #2c2c2c; -fx-effect: null;" text="MATERIAS" textFill="WHITE">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <font>
+            <Font name="Microsoft New Tai Lue Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="Grupos" layoutX="183.0" layoutY="31.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="113.0" style="-fx-background-color: #2c2c2c; -fx-effect: null;" text="GRUPOS" textFill="WHITE">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <font>
+            <Font name="Microsoft New Tai Lue Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="Plantillas" layoutX="296.0" layoutY="31.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="113.0" style="-fx-background-color: #2c2c2c; -fx-effect: null;" text="PLANTILLAS" textFill="WHITE">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <font>
+            <Font name="Microsoft New Tai Lue Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="Inicio" layoutX="425.0" layoutY="31.0" mnemonicParsing="false" onAction="#switchToInicioView" prefHeight="50.0" prefWidth="113.0" style="-fx-background-color: #2c2c2c; -fx-effect: null;" text="INICIO" textFill="WHITE">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <font>
+            <Font name="Microsoft New Tai Lue Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

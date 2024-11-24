@@ -17,15 +17,9 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         db = new Database();
         conn = db.connect();
-        Materia POO = new Materia("POO", 8);
-        try{
-            MateriaCRUD.addMateria(conn, POO);
-        }catch (SQLException s){
-            System.out.println("Error SQL:" + s.toString());
-        }
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        stage.setTitle("Gestor de Alternativas Horarias");
         stage.setScene(scene);
         stage.show();
     }
