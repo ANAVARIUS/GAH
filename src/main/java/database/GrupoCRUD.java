@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.sql.*;
 
 public class GrupoCRUD {
-    public static void addGrupo(Connection connection, Grupo grupo) throws SQLException {
+    public static int addGrupo(Connection connection, Grupo grupo) throws SQLException {
         String sqlGrupo = "INSERT INTO Grupo (nombreProfesor, materia_id, lunes_id, martes_id, miercoles_id, jueves_id, viernes_id, sabado_id, domingo_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         String sqlHorario = "INSERT INTO Horario (hora_inicio, hora_fin) VALUES (?, ?)";
         try (PreparedStatement stmtGrupo = connection.prepareStatement(sqlGrupo, Statement.RETURN_GENERATED_KEYS);
@@ -45,6 +45,13 @@ public class GrupoCRUD {
             }
 
             stmtGrupo.executeUpdate();
+            try (ResultSet generatedKeys = stmtGrupo.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    return generatedKeys.getInt(1);
+                } else {
+                    throw new SQLException("No se pudo obtener el ID generado para la nueva plantilla de horario.");
+                }
+            }
         }
     }
 
@@ -121,6 +128,7 @@ public class GrupoCRUD {
 
             // Configurar los parámetros para buscar el grupo
             Integer materiaID = MateriaCRUD.getIdByNombre(conn, grupo.getMateria().getNombreMateria());
+            if(materiaID == null) throw new SQLException("La materia a la que pertenece el grupo aun no esta en la base de datos.");
             stmtGrupo.setString(1, grupo.getNombreProfesor());
             stmtGrupo.setInt(2, materiaID); // Asegúrate de tener el ID de la materia
 
