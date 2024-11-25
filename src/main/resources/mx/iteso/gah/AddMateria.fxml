@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddMateriaController">
+   <children>
+      <Button fx:id="atrasButton" layoutX="502.0" layoutY="343.0" mnemonicParsing="false" onAction="#switchToMateriasView" prefHeight="27.0" prefWidth="70.0" style="-fx-background-color: #2c2c2c; -fx-effect: null;" text="ATRÁS" textFill="WHITE" />
+      <Button fx:id="guardarButton" layoutX="244.0" layoutY="272.0" mnemonicParsing="false" onAction="#guardarMateria" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: #2c2c2c; -fx-effect: null;" text="GUARDAR" textFill="WHITE" />
+      <TextField fx:id="fieldNombre" layoutX="76.0" layoutY="156.0" promptText="E.j. Contexto Histórico" />
+      <Spinner fx:id="spinnerCreditos" editable="true" layoutX="388.0" layoutY="156.0" />
+      <Text layoutX="76.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre">
+         <font>
+            <Font name="Microsoft New Tai Lue Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="388.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No. Créditos">
+         <font>
+            <Font name="Microsoft New Tai Lue Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="95.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AÑADIR MATERIA" textAlignment="CENTER" wrappingWidth="409.7763671875">
+         <font>
+            <Font name="Microsoft New Tai Lue Bold" size="47.0" />
+         </font>
+         <effect>
+            <Glow level="0.34" />
+         </effect>
+      </Text>
+   </children>
+</AnchorPane>

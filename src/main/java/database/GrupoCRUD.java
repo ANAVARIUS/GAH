@@ -4,6 +4,8 @@ import gestiondehorarios.Grupo;
 import gestiondehorarios.Materia;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 import java.sql.*;
@@ -95,7 +97,7 @@ public class GrupoCRUD {
                     }
                 }
 
-                return new Grupo(nombreProfesor, diasyHoras);
+                return new Grupo(nombreProfesor, materia, diasyHoras);
             }
         }
     }
@@ -147,5 +149,44 @@ public class GrupoCRUD {
             }
         }
     }
+    public static List<Grupo> getAllGrupos(Connection conn) throws SQLException {
+        String sqlGrupo = "SELECT * FROM Grupo";
+        String sqlHorario = "SELECT * FROM Horario WHERE id = ?";
+
+        List<Grupo> grupos = new ArrayList<>();
+
+        try (PreparedStatement stmtGrupo = conn.prepareStatement(sqlGrupo);
+             ResultSet rsGrupo = stmtGrupo.executeQuery()) {
+
+            while (rsGrupo.next()) {
+                String nombreProfesor = rsGrupo.getString("nombreProfesor");
+                int materiaId = rsGrupo.getInt("materia_id");
+                Materia materia = MateriaCRUD.getMateriaById(conn, materiaId); // Implementa este método en MateriaCRUD
+
+                Map<DayOfWeek, Grupo.Horario> diasyHoras = new HashMap<>();
+                for (DayOfWeek dia : DayOfWeek.values()) {
+                    int horarioId = rsGrupo.getInt(dia.toString().toLowerCase() + "_id");
+                    if (horarioId != 0) {
+                        try (PreparedStatement stmtHorario = conn.prepareStatement(sqlHorario)) {
+                            stmtHorario.setInt(1, horarioId);
+                            try (ResultSet rsHorario = stmtHorario.executeQuery()) {
+                                if (rsHorario.next()) {
+                                    LocalTime horaInicio = LocalTime.parse(rsHorario.getString("hora_inicio"));
+                                    LocalTime horaFin = LocalTime.parse(rsHorario.getString("hora_fin"));
+                                    diasyHoras.put(dia, new Grupo.Horario(horaInicio, horaFin));
+                                }
+                            }
+                        }
+                    }
+                }
+
+                Grupo grupo = new Grupo(nombreProfesor, materia, diasyHoras);
+                grupos.add(grupo);
+            }
+        }
+
+        return grupos;
+    }
+
 
 }

@@ -11,12 +11,8 @@ import java.sql.*;
 import gestiondehorarios.*;
 
 public class HelloApplication extends Application {
-    private Database db;
-    private Connection conn;
     @Override
     public void start(Stage stage) throws IOException {
-        db = new Database();
-        conn = db.connect();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Gestor de Alternativas Horarias");
@@ -25,9 +21,9 @@ public class HelloApplication extends Application {
     }
     @Override
     public void stop() throws Exception {
-        if (conn != null) {
-            conn.close();
-        }
+        // Close the database connection when the application exits
+        Database.closeConnection();
+        System.out.println("Application has stopped, and the database connection has been closed.");
         super.stop();
     }
     public static void main(String[] args) {

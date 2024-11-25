@@ -11,13 +11,14 @@ public class Grupo {
     private Map<DayOfWeek, Horario> diasyHoras;
     private Materia materia;
 
-    public Grupo(String nombreProfesor, Map<DayOfWeek, Horario> diasyHoras) {
+    public Grupo(String nombreProfesor, Materia materia, Map<DayOfWeek, Horario> diasyHoras) {
         this.nombreProfesor = nombreProfesor;
         if (diasyHoras == null) {
             this.diasyHoras = new HashMap<>();
         } else {
             this.diasyHoras = diasyHoras;
         }
+        this.materia = materia;
     }
 
     public void agregarHorario(DayOfWeek dia, Horario nuevoHorario){

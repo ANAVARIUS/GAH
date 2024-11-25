@@ -1,5 +1,8 @@
 package database;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
 import gestiondehorarios.Materia;
 
 public class MateriaCRUD {
@@ -63,6 +66,22 @@ public class MateriaCRUD {
             }
         }
         return null;
+    }
+    public static List<Materia> getAllMaterias(Connection connection) throws SQLException {
+        List<Materia> materias = new ArrayList<>();
+        String sql = "SELECT * FROM Materia";
+
+        try (PreparedStatement pstmt = connection.prepareStatement(sql);
+             ResultSet rs = pstmt.executeQuery()) {
+
+            while (rs.next()) {
+                // Create a Materia object from the result set and add it to the list
+                Materia materia = new Materia(rs.getString("nombre"), rs.getInt("noCreditos"));
+                materias.add(materia);
+            }
+        }
+
+        return materias;
     }
 }
 
