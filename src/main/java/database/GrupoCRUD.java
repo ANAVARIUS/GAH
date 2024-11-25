@@ -152,7 +152,15 @@ public class GrupoCRUD {
     public static List<Grupo> getAllGrupos(Connection conn) throws SQLException {
         String sqlGrupo = "SELECT * FROM Grupo";
         String sqlHorario = "SELECT * FROM Horario WHERE id = ?";
-
+        Map<DayOfWeek, String> diaSemanaMap = Map.of(
+                DayOfWeek.MONDAY, "lunes",
+                DayOfWeek.TUESDAY, "martes",
+                DayOfWeek.WEDNESDAY, "miercoles",
+                DayOfWeek.THURSDAY, "jueves",
+                DayOfWeek.FRIDAY, "viernes",
+                DayOfWeek.SATURDAY, "sabado",
+                DayOfWeek.SUNDAY, "domingo"
+        );
         List<Grupo> grupos = new ArrayList<>();
 
         try (PreparedStatement stmtGrupo = conn.prepareStatement(sqlGrupo);
@@ -164,8 +172,10 @@ public class GrupoCRUD {
                 Materia materia = MateriaCRUD.getMateriaById(conn, materiaId); // Implementa este método en MateriaCRUD
 
                 Map<DayOfWeek, Grupo.Horario> diasyHoras = new HashMap<>();
+
                 for (DayOfWeek dia : DayOfWeek.values()) {
-                    int horarioId = rsGrupo.getInt(dia.toString().toLowerCase() + "_id");
+                    String columna = diaSemanaMap.get(dia) + "_id"; // Convierte el día al formato correcto
+                    int horarioId = rsGrupo.getInt(columna);
                     if (horarioId != 0) {
                         try (PreparedStatement stmtHorario = conn.prepareStatement(sqlHorario)) {
                             stmtHorario.setInt(1, horarioId);

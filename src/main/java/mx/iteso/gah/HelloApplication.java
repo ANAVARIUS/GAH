@@ -7,8 +7,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.*;
-import gestiondehorarios.*;
 
 public class HelloApplication extends Application {
     @Override
@@ -23,7 +21,6 @@ public class HelloApplication extends Application {
     public void stop() throws Exception {
         // Close the database connection when the application exits
         Database.closeConnection();
-        System.out.println("Application has stopped, and the database connection has been closed.");
         super.stop();
     }
     public static void main(String[] args) {

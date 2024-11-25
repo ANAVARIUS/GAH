@@ -47,11 +47,11 @@
             <Font name="Microsoft New Tai Lue Bold" size="12.0" />
          </font>
       </Button>
-      <TableView fx:id="gruposTable" layoutX="61.0" layoutY="173.0" prefHeight="200.0" prefWidth="485.0">
+      <TableView fx:id="gruposTable" layoutX="34.0" layoutY="178.0" prefHeight="200.0" prefWidth="540.0">
         <columns>
-          <TableColumn fx:id="columnaMateria" prefWidth="149.0" text="Materia" />
-          <TableColumn fx:id="columnaNombreProfesor" prefWidth="167.0" text="Nombre Profesor" />
-            <TableColumn fx:id="columnaHorario" prefWidth="168.0" text="Horario" />
+          <TableColumn fx:id="columnaMateria" prefWidth="119.0" text="Materia" />
+          <TableColumn fx:id="columnaNombreProfesor" prefWidth="168.0" text="Nombre Profesor" />
+            <TableColumn fx:id="columnaHorario" prefWidth="252.0" text="Horario" />
         </columns>
       </TableView>
       <Button fx:id="añadirGrupo" layoutX="61.0" layoutY="138.0" mnemonicParsing="false" onAction="#switchToAddGrupoView" prefHeight="25.0" prefWidth="485.0" style="-fx-background-color: grey;" text="Añadir Grupo" textAlignment="CENTER">

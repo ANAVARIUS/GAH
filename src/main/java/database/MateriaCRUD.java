@@ -25,12 +25,12 @@ public class MateriaCRUD {
         }
     }
     public static Materia getMateriaByNombre(Connection connection, String nombreMateria) throws SQLException {
-        String sql = "SELECT * FROM Materia WHERE nombreMateria = ?";
+        String sql = "SELECT * FROM Materia WHERE nombre = ?";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setString(1, nombreMateria);
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
-                    return new Materia(rs.getString("nombreMateria"), rs.getInt("noCreditos"));
+                    return new Materia(rs.getString("nombre"), rs.getInt("noCreditos"));
                 }
             }
         }
@@ -44,7 +44,7 @@ public class MateriaCRUD {
         }
     }
     public static Integer getIdByNombre(Connection connection, String nombreMateria) throws SQLException {
-        String sql = "SELECT id FROM Materia WHERE nombreMateria = ?";
+        String sql = "SELECT id FROM Materia WHERE nombre = ?";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setString(1, nombreMateria);
             try (ResultSet rs = pstmt.executeQuery()) {
@@ -61,7 +61,7 @@ public class MateriaCRUD {
             pstmt.setInt(1, id);
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
-                    return new Materia(rs.getString("nombreMateria"), rs.getInt("noCreditos"));
+                    return new Materia(rs.getString("nombre"), rs.getInt("noCreditos"));
                 }
             }
         }
