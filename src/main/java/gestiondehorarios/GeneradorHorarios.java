@@ -43,9 +43,8 @@ public class GeneradorHorarios {
 
     private static boolean esValido(Grupo grupo, PlantillaHorario plantilla) {
         for (Grupo existente : plantilla.getGrupos()) {
-            if (PlantillaHorario.haySolapamiento(grupo, existente)) {
-                return false;
-            }
+            if (grupo.getMateria().equals(existente.getMateria())) return false;
+            if (PlantillaHorario.haySolapamiento(grupo, existente)) return false;
         }
         return true;
     }

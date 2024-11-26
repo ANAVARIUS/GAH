@@ -3,6 +3,7 @@ package gestiondehorarios;
 import java.util.List;
 import  java.util.ArrayList;
 import java.time.DayOfWeek;
+import java.util.Objects;
 
 public class PlantillaHorario {
     private List<Grupo> grupos;
@@ -42,5 +43,17 @@ public class PlantillaHorario {
             }
         }
         return false; // No hay solapamiento
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PlantillaHorario that = (PlantillaHorario) o;
+        return Objects.equals(grupos, that.grupos); // Compare relevant fields
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(grupos); // Include relevant fields
     }
 }

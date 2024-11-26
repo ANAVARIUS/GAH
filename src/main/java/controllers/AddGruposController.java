@@ -94,7 +94,7 @@ public class AddGruposController {
             "07:00", "09:00", "11:00", "13:00", "16:00", "18:00", "20:00"
     );
     private static final List<String> TIME_SLOTS_FIN = List.of(
-            "09:00", "11:00", "13:00", "16:00", "18:00", "20:00", "22:00"
+            "09:00", "11:00", "13:00", "15:00", "18:00", "20:00", "22:00"
     );
 
     @FXML
@@ -188,7 +188,7 @@ public class AddGruposController {
             // Show error message
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
-            alert.setHeaderText("No se pudo guardar el grupo: " + e.toString());
+            alert.setHeaderText("No se pudo guardar el grupo");
             alert.setContentText(e.getMessage());
             alert.showAndWait();
         }
