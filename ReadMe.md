@@ -38,9 +38,7 @@ Gestor de Alternativas Horarias es una aplicación de escritorio desarrollada en
 
 ## Instalación y Configuración
 
-1. Clona este repositorio:
-   git clone https://github.com/tu_usuario/gestor-alternativas-horarias.git
-   cd gestor-alternativas-horarias
+1. Clona este repositorio.
 2. Asegúrate de tener configurado Maven y JavaFX en tu entorno.
 3. Ejecuta el proyecto:
    mvn javafx:run
