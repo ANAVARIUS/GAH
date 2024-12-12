@@ -13,13 +13,13 @@ Gestor de Alternativas Horarias es una aplicación de escritorio desarrollada en
 2. **Generación de Horarios**:
    - Generación automática de combinaciones de horarios utilizando un algoritmo de retroceso (backtracking).
    - Filtrado de horarios según grupos llenos u otras preferencias.
-   - Optimización del rendimiento con poda del árbol de búsqueda y limitación a las 6 mejores combinaciones en caso de baja velocidad.
+   - Optimización del rendimiento con poda del árbol de búsqueda y limitación a las 10 mejores combinaciones en caso de baja velocidad.
 
 3. **Visualización y Edición**:
    - Interfaz intuitiva para visualizar los horarios generados.
    - Botón para guardar cambios y regenerar horarios en función de las modificaciones realizadas.
 
-4. **Exportación de Horarios**:
+4. **Exportación de Horarios** (en proceso):
    - Exporta los horarios generados en formatos como JPEG, PNG o PDF.
 
 5. **Almacenamiento Persistente**:
